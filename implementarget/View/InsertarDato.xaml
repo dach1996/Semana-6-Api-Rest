@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="implementarget.InsertarDato">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <StackLayout>
+                <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+
+                <Entry Text="{Binding modelo.codigo}" Placeholder="Ingrese CODIGO"></Entry>
+                <Entry Text="{Binding modelo.nombre}"  Placeholder="Ingrese Nombre"></Entry>
+                <Entry Text="{Binding modelo.apellido}"  Placeholder="Ingrese Apelldio"></Entry>
+                <Entry Text="{Binding modelo.edad}" Placeholder="Ingrese Edad"></Entry>
+            </StackLayout>
+            <StackLayout Orientation="Horizontal"   VerticalOptions="FillAndExpand" >
+                <Button Text="INSERTAR" Command="{Binding GuardarCommand}" VerticalOptions="End" HorizontalOptions="FillAndExpand"></Button>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

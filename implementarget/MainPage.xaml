@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="implementarget.MainPage">
+
+    <StackLayout>
+        <Frame BackgroundColor="#2196F3"  CornerRadius="0">
+            <Label Text="API REST MVVM" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
+        </Frame>
+        <Button Text="Nueva Persona + " Clicked="Button_Clicked"></Button>
+        <ListView x:Name="MiList" ItemsSource="{Binding consulta}" >
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="3*"/>
+                                <ColumnDefinition Width="3*"/>
+                            </Grid.ColumnDefinitions>
+                            <Label Grid.Column="0"  VerticalOptions="CenterAndExpand" Text="{Binding codigo}"></Label>
+                            <Label Grid.Column="1"  VerticalOptions="CenterAndExpand" Text="{Binding nombre}"></Label>
+                            <Label Grid.Column="2"  VerticalOptions="CenterAndExpand" Text="{Binding apellido}"></Label>
+                            <Label  Grid.Column="3"  VerticalOptions="CenterAndExpand" Text="{Binding edad}"></Label>
+                            <Button HorizontalOptions="End" Grid.Column="4" Text="Editar" Command="{Binding Path=BindingContext.Editar, Source={x:Reference MiList}}" CommandParameter="{Binding .}"></Button>
+                            <Button HorizontalOptions="End" Grid.Column="5" Text="Eliminar" Command="{Binding Path=BindingContext.Borrar, Source={x:Reference MiList}}" CommandParameter="{Binding .}"></Button>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>
